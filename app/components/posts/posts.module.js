@@ -1,1 +1,1 @@
-angular.module("reddit")
+angular.module("posts",[])

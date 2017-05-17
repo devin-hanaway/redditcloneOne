@@ -3,16 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title>Reddit Clone</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
-  <nav>
+  <nav class="container-fluid">
     <h1>reddit clone</h1>
+    <a data-toggle="modal" data-target="#newPostModal" class="newPost btn btn-success">New Post</a>
   </nav>
-  <body>
-    <posts></posts>
-
-
+  <body class="container-fluid row">
+    <section class="col-lg-10 center-block">
+      <posts></posts>
+    </section>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
       </script>
       <script src="./app/app.module.js"></script>
+      <script src="./app/components/posts/posts.components.js"></script>
+      <script src="./app/components/posts/posts.module.js"></script>
+
   </body>
 </html>
