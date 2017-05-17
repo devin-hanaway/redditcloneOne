@@ -1,3 +1,34 @@
+/* NAV */
+nav.container-fluid {
+  background-color: rgb(206,227,248);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+div.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+div.nav-logo h1 {
+  margin-left: 10px;
+}
+
+div.nav-logo img {
+  height: 50px;
+  width: auto;
+}
+
+div.newPostModal {
+  position: absolute;
+  top: 17px;
+  right: 20px;
+}
+
+/* BODY */
+
 img.img-fluid{
   width: 100%;
   height: auto;
@@ -6,4 +37,9 @@ img.img-fluid{
 img{
   width: 15px;
   height: auto;
+}
+
+main.container-fluid.row {
+  display: flex;
+  justify-content: center;
 }
