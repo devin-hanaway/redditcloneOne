@@ -2,7 +2,9 @@ angular.module("reddit")
 .component('posts',{
   controller: controller,
   template: `
-    <div class="well row" ng-repeat="item in $ctrl.items">
+    <label>Search:</label>
+    <input  type="text" ng-model="searchText">
+    <div class="well row" ng-repeat="item in $ctrl.items | filter:searchText">
       <section class="col-lg-2 col-md-2 col-sm-1 col-xs-2">
         <img class="img-fluid" ng-src="{{item.img}}" alt="Image">
       </section>
@@ -25,25 +27,25 @@ angular.module("reddit")
         <a ng-click="showComments = !showComments">
           <ng-pluralize count="item.comments.length" when="{'0': 'no comments', '1':'1 comment', 'other':'{} comments'}"></ng-pluralize>
         </a>
-      <div>
-        <div class="row"  ng-show="showComments">
+      <div class="row"  ng-show="showComments">
+        <div>
           <ul ng-repeat="comment in item.comments">
             <li>{{comment.text}}</li>
           </ul>
         </div>
         <div class="row">
           <div class="col-md-offset-1">
-            <hr>
             <p>
               Add Comment:
             </p>
-            <form ng-submit="$ctrl.addComment(post)" class="form-inline">
+            <form onSubmit="this.reset()"ng-submit="$ctrl.addComment(item, comment)" class="form-inline">
               <div class="form-group">
-                <input ng-model="$ctrl.newComment.text" class="form-control">
+                <input ng-model="comment" class="form-control">
               </div>
               <div class="form-group">
                 <input type="submit" class="btn btn-primary">
               </div>
+
             </form>
           </div>
         </div>
@@ -54,6 +56,7 @@ angular.module("reddit")
 
 
       </section>
+    </div>
 
       <section class="col-lg-2 col-md-1 col-sm-1 col-xs-1">
         <p> {{item.author}}</p>
@@ -119,7 +122,7 @@ function controller (){
     ]
   }
   vm.addPost = function (){
-    vm.item.comments = 0
+    vm.item.comments = []
     vm.item.votes = 0
     vm.item.time = Date()
     vm.items.push(vm.item)
@@ -134,16 +137,9 @@ function controller (){
     item.votes--
   }
 
-  vm.commentsCheck = 1
-
-  vm.commentsOn = function(on){
-    return vm.commentCheck === on
-  }
-
-  vm.addComment = function (item){
-    var commentSection = item.comments
-    commentSection.push(vm.newComment)
-    delete vm.newComment
+  vm.addComment = function (item, comment){
+    vm.items[vm.items.indexOf(item)].comments.push({text: comment})
+    delete vm.comment
   }
 
 }
