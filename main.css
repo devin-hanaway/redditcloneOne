@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'VAG Round';
+    src: url('VAG-Round.ttf');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VAG Light';
+    src: url('VAGRounded-Light.ttf');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+* {
+  font-family: 'VAG Light', sans-serif;
+}
+
 /* NAV */
 nav.container-fluid {
   background-color: rgb(206,227,248);
@@ -14,6 +32,8 @@ div.nav-logo {
 
 div.nav-logo h1 {
   margin-left: 10px;
+  font-size: 2.25em;
+  font-family: 'VAG Round', sans-serif;
 }
 
 div.nav-logo img {
@@ -27,6 +47,12 @@ div.newPostModal {
   right: 20px;
 }
 
+a.newPost.btn.btn-success {
+  background-color: rgb(255,255,255);
+  color: black;
+  border: 1px solid black;
+}
+
 /* BODY */
 
 img.img-fluid{
@@ -37,9 +63,42 @@ img.img-fluid{
 img{
   width: 15px;
   height: auto;
+  margin-bottom: 5px;
 }
 
 main.container-fluid.row {
   display: flex;
   justify-content: center;
+}
+
+p.post-description {
+  margin-top: 20px;
+}
+
+p.post-other-details {
+  margin-top: 10px;
+}
+
+span.post-title, span.vote-count {
+  font-size: 1.25em;
+}
+
+span.post-title {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+span.vote-count {
+  margin-left: 5px;
+}
+
+a.no-decorate {
+  text-decoration: none;
+  color: black;
+}
+
+img.comments-logo {
+  margin-top: 2px;
+  height: 10px;
+  width: auto;
 }
